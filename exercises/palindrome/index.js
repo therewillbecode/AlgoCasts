@@ -10,4 +10,9 @@
 const palindrome = str =>
   str.split('').reverse().join('') == str
 
+// Alternate solution
+// less efficient as it has redundant checks after the half way mark
+const palindromeAlt = str =>
+      str.split('').every((s, i) => s === str[(str.length - 1) -i])
+
 module.exports = palindrome;
