@@ -17,6 +17,19 @@
 //       '### '
 //       '####'
 
-function steps(n) {}
+const steps = n => {
+    let arr = []
+
+    for (let i =0; i < n; i++){
+        let step = ''
+
+        for (let k = 0; k < n; k++){
+            const l = i >= k  ? '#' : ' '
+            step += l
+        }
+        console.log(step)
+    }
+}
+
 
 module.exports = steps;
