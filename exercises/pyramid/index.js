@@ -18,7 +18,7 @@ const pyramid = (n) => {
     for(let row = 0; row < n; row++){
         let stairs = ''
         for (let col =1; col <= (2*n)-1; col++){
-            if (col === Math.floor( n  ) ) {
+            if (col === n) {
                 stairs += '#'
             }
             else if (
