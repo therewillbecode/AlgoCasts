@@ -24,6 +24,23 @@
 
 const Queue = require('./queue');
 
-function weave(sourceOne, sourceTwo) {}
+const weave = (currQ, nextQ, res) => {
+    if (!res) res = new Queue()
+
+    const currNode = currQ.remove()
+    const nextNode = nextQ.peek()
+
+    // base case
+    if (!currNode && !nextNode) return res
+
+    res.add(currNode)
+
+    // alternate as other q is not empty
+    if (nextNode) return weave(nextQ, currQ, res)
+
+    // don't alternate as other q is empty
+    if (!nextNode) return weave(currQ, nextQ, res)
+
+}
 
 module.exports = weave;
