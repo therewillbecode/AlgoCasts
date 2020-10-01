@@ -8,12 +8,12 @@
 // Example:
 //   fib(4) === 3
 const memoize = func => {
-    const results = {}
+    const cache = {}
     return n => {
-        if (!results[n]) {
-            results[n] = func(n)
+        if (!cache[n]) {
+            cache[n] = func(n)
         }
-        return results[n]
+        return cache[n]
     }
 }
 
