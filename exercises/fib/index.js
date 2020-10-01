@@ -9,11 +9,11 @@
 //   fib(4) === 3
 const memoize = func => {
     const cache = {}
-    return n => {
-        if (!cache[n]) {
-            cache[n] = func(n)
+    return (...args) => {
+        if (!cache[args]) {
+            cache[args] = func.apply(this, args)
         }
-        return cache[n]
+        return cache[args]
     }
 }
 
