@@ -11,7 +11,7 @@ const memoize = func => {
     const cache = {}
     return (...args) => {
         if (!cache[args]) {
-            cache[args] = func.apply(this, args)
+            cache[args] = func(...args)
         }
         return cache[args]
     }
