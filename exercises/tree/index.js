@@ -26,6 +26,37 @@ class Node {
     }
 }
 
-class Tree {}
+class Tree {
+    constructor(){
+        this.root = null
+    }
+
+    traverseBF (f) {
+        if (this.root === null) return
+        let q = [].concat(this.root.children)
+        f(this.root)
+
+        while(q.length){
+            const [head, ...tail] = q
+            f(head)
+            q = tail.concat(head.children)
+        }
+
+    }
+
+    traverseDF (f) {
+        if (this.root === null) return
+        let q = [].concat(this.root.children)
+        f(this.root)
+
+        while(q.length){
+            const [head, ...tail] = q
+            f(head)
+            q = head.children.concat(tail)
+        }
+
+    }
+
+}
 
 module.exports = { Tree, Node };
