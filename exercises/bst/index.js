@@ -36,6 +36,22 @@ class Node {
         }
 
     }
+
+    contains(data) {
+        if (this.data === data) return this
+
+        if (data < this.data && this.left)
+            return this.left.contains(data)
+
+        if (data < this.data && !this.left)
+            return null
+
+        if (data > this.data && this.right)
+            return this.right.contains(data)
+
+        if (data > this.data && !this.right)
+            return null
+    }
 }
 
 module.exports = Node;
